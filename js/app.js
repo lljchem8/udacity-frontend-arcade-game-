@@ -17,6 +17,7 @@ function addEnemies (allEnemies) {
   console.log(levelNum);
 }
 
+//test git email 
 function restartGame() {
   player.x = 202;
   player.y = 392;
