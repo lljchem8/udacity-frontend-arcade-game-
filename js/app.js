@@ -18,7 +18,7 @@ function addEnemies (allEnemies) {
 }
 
 
-//test git email
+
 
 function restartGame() {
   player.x = 202;
@@ -42,6 +42,7 @@ function checkCollisions() {
     if (enemy.collision(player)) {
       const modalElement = document.querySelector(".modal");
       modalElement.style.display = "block";
+      document.removeEventListener('keyup', keyboard);
     }
   })
 }
@@ -55,19 +56,21 @@ document.addEventListener('click', function(event) {
     if (event.target.id == "play-again" || event.target.classList[0] == "close") {
       modalElement.style.display = "none";
       restartGame();
+      document.addEventListener('keyup', keyboard);
     }
 
     // if the user clicks anywhere outside of the modal, close it
     if (event.target == modalElement) {
       modalElement.style.display = "none";
       restartGame();
+      document.addEventListener('keyup', keyboard);
     }
 })
 
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
-document.addEventListener('keyup', function(e) {
+function keyboard(e)  {
     var allowedKeys = {
         37: 'left',
         38: 'up',
@@ -76,4 +79,6 @@ document.addEventListener('keyup', function(e) {
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
-});
+}
+
+document.addEventListener('keyup', keyboard);
