@@ -28,8 +28,6 @@ class Enemy extends Entity {
   collision(player) {
     if (this.y == player.y) {
       if (Math.abs(this.x-player.x) < 30) {
-        console.log("player:", player.x, player.y);
-        console.log("bug:", this.x, this.y);
         return true;
       }
     }
@@ -44,7 +42,13 @@ class Player extends Entity {
   }
 
   update() {
-    //do nothing;
+    //check if the player arrived the river
+    if (player.y == -23) {
+      restartGame();
+      const levelElement = document.querySelector(".levelNum");
+      const levelNum = parseInt(levelElement.innerText);
+      levelElement.innerText = levelNum+1;
+    }
   }
 
   handleInput(direction) {
