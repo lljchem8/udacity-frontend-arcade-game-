@@ -47,7 +47,16 @@ class Player extends Entity {
       restartGame();
       const levelElement = document.querySelector(".levelNum");
       const levelNum = parseInt(levelElement.innerText);
-      levelElement.innerText = levelNum+1;
+      if (levelNum+1>10) {
+        // winning the game
+        console.log("win the game");
+        diaplayModal(true);
+        document.querySelector(".win-game").setAttribute("data-win", true);
+      }
+      else {
+        levelElement.innerText = levelNum+1;
+      }
+
     }
   }
 

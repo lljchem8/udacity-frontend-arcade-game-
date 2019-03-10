@@ -11,10 +11,13 @@
           <!-- Modal content -->
           <div class="modal-content">
               <span class="close">&times;</span>
-              <h2>Game Over!</h2>
-              <h3 id="winning"><h3>
-              <button id="play-again">Play Again</button>
+              <h2 class="game-continue" style="display:none">Failed in level <span class="failedLevel"> </span>. You have <span class="numOfLife"> </span> life left</h2>
+              <h2 class="game-over" style="display:none">Game Over!</h2>
+              <h2 class="win-game" style="display:none" data-win="false">Congratuations, you won!</h2>
+              <button id="play-again">Continue</button>
           </div>
+
+
 
     </div>
 
