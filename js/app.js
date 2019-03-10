@@ -23,7 +23,6 @@ function restartGame() {
   player.x = 202;
   player.y = 392;
   allEnemies = [];
-  level = 1;
   addEnemies(allEnemies);
 }
 
